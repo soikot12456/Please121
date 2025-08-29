@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Please Typing Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🙏 🥺  💖  🙏</h1>
+    <div id="pleaseContainer"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('pleaseContainer');
+    let count = 0;
+    const total = 1000;
+    const emojis = ["🙏", "💫", "✨", "🥺", "🌟", "💖"];
+
+    function typePlease() {
+      if (count < total) {
+        const span = document.createElement('span');
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        span.textContent = 'Please ' + emoji + ' ';
+        span.className = 'please';
+        span.style.setProperty('--i', count);
+        container.appendChild(span);
+        count++;
+        setTimeout(typePlease, 10); // adjust speed here
+      }
+    }
+
+    window.onload = typePlease;
+  </script>
+</body>
+</html>
